@@ -70,12 +70,12 @@ Vamos a crear tres variables, en el fichero vars.tf, con el nombre para la IP, p
 ```
 variable "ip_name" {
     type = string
-    default = "Server_IP"
+    default = "ip-server"
 }
 
 variable "vm_name" {
     type = string
-    default = "Server"
+    default = "server"
 }
 
 variable "vm_machine" {
@@ -120,6 +120,7 @@ output "server_image" {
 }
 
 
+
 resource "google_compute_instance" "vm" {
   name         = var.vm_name
   machine_type = var.vm_machine
@@ -134,11 +135,11 @@ resource "google_compute_instance" "vm" {
         nat_ip = google_compute_address.static_ip.address
     }
   }
-} 
 
   metadata = {
     ssh-keys =  "ec2-user:${file("~/.ssh/id_rsa.pub")}" 
   }
+}
 
 ```
 
