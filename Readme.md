@@ -137,7 +137,7 @@ resource "google_compute_instance" "vm" {
   }
 
   metadata = {
-    ssh-keys =  "ec2-user:${file("~/.ssh/id_rsa.pub")}" 
+    ssh-keys =  "usuario:${file("~/.ssh/id_rsa.pub")}" 
   }
 }
 
